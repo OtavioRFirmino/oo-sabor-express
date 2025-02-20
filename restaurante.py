@@ -11,7 +11,9 @@ class Restaurante:
 
     def listar_restaurantes():
         for restaurante in Restaurante.restaurantes:
-            print
+            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
 
 restaurante_praca = Restaurante('Praça', 'Gourmet')
 restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
+
+Restaurante.listar_restaurantes()
