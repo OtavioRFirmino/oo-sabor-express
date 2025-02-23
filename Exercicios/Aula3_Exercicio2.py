@@ -14,11 +14,29 @@
 
 class ContaBancaria:
     def __init__(self, titular='', saldo=0):
-        self.titular = titular
-        self.saldo = saldo
-        self.ativo = False
+        self._titular = titular
+        self._saldo = saldo
+        self._ativo = False
+
+    @property 
+    def titular(self):
+        return self._titular
+    
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @property
+    def ativo(self):
+        return self._ativo
 
     def __str__(self):
-        return f'Titular: {self.titular}\nSaldo: {self.saldo}'
+        return f'Titular: {self.titular}\nSaldo: {self.saldo}\nSituação: {self.ativo}'
+    
+    @classmethod
+    def ativar_conta(cls, conta):
+        conta._ativo = True
+conta_otavio = ContaBancaria('Otávio', 10000)
+ContaBancaria.ativar_conta(conta_otavio)
+print(conta_otavio)
 
-conta_otavio = ContaBancaria('Otávio',)
