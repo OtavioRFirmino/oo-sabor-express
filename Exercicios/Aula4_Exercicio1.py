@@ -20,22 +20,21 @@ class Livro:
         self.autor = autor
         self.ano_publicacao = ano_publicacao
         self.disponivel = True
-
+    
     def __str__(self):
-        return f'Título: {self.titulo}\nAutor: {self.autor}\nPublicação: {self.ano_publicacao}\nDisponível: {self.disponivel}'
+        return (f'{self.titulo}, {self.autor}, {self.ano_publicacao}')
     
     def emprestar(self):
-        if self.disponivel == True:
-            self.disponivel = False
+       self.disponivel = False
     
     @staticmethod
     def verificar_disponibilidade(ano):
-        if ano_publicação == ano:
-        
-livro_harrypotter = Livro('Harry Potter', 'JK Rolling', 1997)
-livro_senhordosaneis = Livro('Senhor dos Aneis', 'J. R. R. Tolkien', 2001)
+        livros_disponiveis = [livro for livro in Livro.livros if livro.ano_publicacao == ano and livro.disponivel]
+        return livros_disponiveis
+    
 
-livro_senhordosaneis.emprestar()
+livro1 = Livro('Harry Potter', 'J.K. Rowling', 1995)
+livro1.emprestar()
+livro2 = Livro('Senhor dos Anéis', 'J.R.R. Tolkien', 1937)
+Livro.verificar_disponibilidade(1995)
 
-
-print(livro_senhordosaneis)
